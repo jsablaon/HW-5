@@ -10,9 +10,10 @@ function FoodObject(pFoodName, pIsSpicy, pIngredients, pOrigin, pUrl){
     this.Url = pUrl;
 }
 
-// $(document).ready(function(){
-//     // jQuery methods go here
-// });
+foodArray.push(new FoodObject("Beans", "yes", "beans, honey, kethcup", "USA", "https://www.foodnetwork.com/topics/baked-beans"))
+foodArray.push(new FoodObject("Pizza", "no", "dough, cheese, sauce", "Italy", "https://www.foodnetwork.com/topics/pizza"))
+
+
 
 // dom listeners
 document.addEventListener("DOMContentLoaded", function(){
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //document.getElementById("ClearFields").addEventListener("click", ClearFields);
 
     $(document).on("pagebeforeshow", "#ListFood", function (event) {   // have to use jQuery 
-        DisplayAll();
+        drawTable();
     });
 });
 
@@ -61,22 +62,64 @@ function DisplayFoodData(food){
     });
 }
 
-// TODO: improve output
-function DisplayAll(){
-    let myUl = document.getElementById("foods");
-    myUl.innerHTML = "";
-    foodArray.forEach(f => {  
-        let listOfIngredients;
-        f.Ingredients.forEach(i => {
-            listOfIngredients = " | " + i
-        });
 
-        let li = document.createElement('li');
-        li.innerHTML = f.FoodName + " = " + f.IsSpicy + " = " + f.Origin + " = " + f.Url + " = " + listOfIngredients;
-        myUl.appendChild(li);
 
-    });
+
+
+function drawTable() {
+    // get the reference for the body
+      // creates a <table> element
+    var tbl = document.getElementById('foodtable');
+    while (tbl.rows.length > 1) {  // don't delete the header
+        tbl.deleteRow(1);
+    }
+
+    // creating rows
+    for (var r = 0; r < foodArray.length; r++) {
+        var row = document.createElement("tr");
+
+        // create cells in row
+      
+        var cell0 = document.createElement("td");
+        var cell1 = document.createElement("td");
+        var cell2 = document.createElement("td");
+        var cell3 = document.createElement("td");
+        var cell4 = document.createElement("td");
+
+
+        cell0.appendChild(document.createTextNode(foodArray[r].FoodName));
+        row.appendChild(cell0);
+        cell1.appendChild(document.createTextNode(foodArray[r].IsSpicy));
+        row.appendChild(cell1);
+        cell2.appendChild(document.createTextNode(foodArray[r].Origin));
+        row.appendChild(cell2);
+        cell3.appendChild(document.createTextNode(foodArray[r].Ingredients));
+        row.appendChild(cell3);
+        cell4.appendChild(document.createTextNode(foodArray[r].Url));
+        row.appendChild(cell4);
+        
+        
+        
+        // var cellText = document.createTextNode(foodArray[r].IsSpicy);
+        // row.appendChild(cell);
+        // var cellText = document.createTextNode(foodArray[r].Ingredients);
+        // row.appendChild(cell);
+        // var cellText = document.createTextNode(foodArray[r].Origin);
+        // row.appendChild(cell);
+        // var cellText = document.createTextNode(foodArray[r].FoodName);
+        // row.appendChild(cell);;
+        
+        // row.appendChild(cell);
+        
+
+        tbl.appendChild(row); // add the row to the end of the table body
+    }
+
+    //div1.appendChild(tbl); // appends <table> into <div1>
 }
+
+
+
 
 
 
