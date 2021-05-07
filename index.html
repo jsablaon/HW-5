@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Food Recipes</title>
+        <link rel="stylesheet" text="text/css" href="style.css"/>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+
+        <!-- +++++++++++++++++++ HOME PAGE ++++++++++++++++++++ -->
+        <!-- +++++++++++++++++++ HOME PAGE ++++++++++++++++++++ -->
+        <div data-role="page" id="Home" data-theme="a">
+            <!-- +++++ HEADER +++++ -->
+            <div data-role="header">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href=#AddFood>AddFood</a></li>
+                        <li><a href=#ListFood>ListFood</a></li>
+                    </ul>
+                </div>
+                <h1>Food Recipe Tracker</h1>
+                <img src="./Assets/CookbookAnimation.gif" alt="cook book" class="pCenter">
+            </div>
+
+            <!-- +++++ CONTENT +++++ -->
+            <div data-role="content" data-theme="b">
+                <h1 style="text-align: center;">Create a collection of food recipes that you enjoy!</h1>
+                <img src="./Assets/CPF_FC_Cookbook.gif" alt="cook book 2" class="center">
+            </div>
+
+            <!-- +++++ FOOTER +++++ -->
+            <div data-role="footer">
+                <img src="./Assets/cleaver.gif" alt="cook book" class="pCenter">
+                <h6>Copyright 2021 by John Sablaon</h6>
+
+            </div>
+        </div>
+
+        <!-- +++++++++++++++++++ ADD FOOD PAGE ++++++++++++++++++++ -->
+        <!-- +++++++++++++++++++ ADD FOOD PAGE ++++++++++++++++++++ -->
+        <div data-role="page" id="AddFood" data-theme="a">
+            <!-- +++++ HEADER +++++ -->
+            <div data-role="header">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href=#Home>Home</a></li>
+                        <li><a href=#ListFood>ListFood</a></li>
+                    </ul>
+                </div>
+                <h1>Enter Food Info</h1>
+                <img src="./Assets/CookbookAnimation.gif" alt="cook book" class="pCenter">
+
+            </div>
+
+            <!-- +++++ CONTENT +++++ -->
+            <div data-role="content" data-theme="b">
+                <h1>Add Food Page</h1>
+
+                <label for="foodName"> Food Name:</label>
+                <input type="text" name="foodName" id="foodName" placeholder="Food" />
+          
+                <!-- <label for="isSpicy"> Spicy:</label>
+                <input name="isSpicy" id="isSpicy" placeholder="Yes/No" /> -->
+
+                <label for="ingredients"> Ingredients:</label>
+                <input name="ingredients" id="ingredients" placeholder="Enter ingredients separated by comma" />
+          
+                <label for="origin"> Food Origin:</label>
+                <input name="origin" id="origin" placeholder="Country" />
+
+                <label for="url"> Recipe Url:</label>
+                <input name="url" id="url" placeholder="url" />
+
+                <label for="isSpicy"> Spicy: </label>
+                <select id="isSpicy" name="isSpicy">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                
+                <input type="submit" value="Add Food" onclick="AddFood()">
+                <input type="submit" value="Clear Fields" onclick="ClearFields()">
+
+                <!-- <input type="button" value="Add Food" id="AddFood" data-inline="true">
+                <input type="button" value="Clear Fields" id="ClearFields" data-inline="true"> -->
+
+                <!-- <button type="button" id="AddFood">Add Food</button>
+                <button type="button" id="ClearFields">Clear Fields</button> -->
+
+
+            </div>
+
+            <!-- +++++ FOOTER +++++ -->
+            <div data-role="footer">
+                <img src="./Assets/cleaver.gif" alt="cook book" class="pCenter">
+                <h6>Copyright 2021 by John Sablaon</h6>
+            </div>
+        </div>
+
+        <!-- +++++++++++++++++++ LIST FOOD PAGE ++++++++++++++++++++ -->
+        <!-- +++++++++++++++++++ LIST FOOD PAGE ++++++++++++++++++++ -->
+        <div data-role="page" id="ListFood" data-theme="a">
+            <!-- +++++ HEADER +++++ -->
+            <div data-role="header">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href=#Home>Home</a></li>
+                        <li><a href=#AddFood>AddFood</a></li>
+                        
+                    </ul>
+                </div>
+                <h1>Collection of Recipes</h1>
+                <img src="./Assets/CookbookAnimation.gif" alt="cook book" class="pCenter">
+
+            </div>
+
+            <!-- +++++ CONTENT +++++ -->
+            <div data-role="content" data-theme="b">
+                <h1>List Food Page</h1>
+                <div id="outputList">
+                    <ul id=foods></ul>
+                    <ul id="recipes"></ul>
+                </div>
+            </div>
+
+            <!-- +++++ FOOTER +++++ -->
+            <div data-role="footer">
+                <img src="./Assets/cleaver.gif" alt="cook book" class="pCenter">
+                <h1>Copyright 2021 by John Sablaon</h1>
+            </div>
+        </div>
+        
+    </body>
+
+</html>
